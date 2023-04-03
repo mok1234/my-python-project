@@ -107,19 +107,35 @@ def checkwhichmarkwon(mark):
         return True
     if board['3'] == board['6'] and board['3'] == board['9'] and board['3']==mark:
         return True
+def play():
+    print_board()
+    while True:
+        print('player1 round')
+        insert(player,input())
+        print_board()
+        if check_win():
+            print(player+' Win')
+            break
+        if check_draw():
+            print('draw')
+            break
+        comp_move()
+        print_board()
+        if check_win():
+            print(computer+' Win')
+            break
+
 while True:
-    print_board()
-    print('player1 round')
-    insert(player,input())
-    print_board()
-    if check_win():
-        print(player+' Win')
+    play()
+    print("play again write y close the game write n")
+    a = input().lower()
+    while a!= 'y' and a!='n':
+        print('error write again')
+        a = input()
+    if a == 'n':
         break
-    if check_draw():
-        print('draw')
-        break
-    comp_move()
-    print_board()
-    if check_win():
-        print(computer+' Win')
-        break
+    if a == 'y':
+        board ={'1':'-','2':'-','3':'-',
+         '4':'-','5':'-','6':'-',
+         '7':'-','8':'-','9':'-'
+        }
